@@ -18,7 +18,7 @@ def get_latest(instrument):
     # get timing parameters
     response = requests.get('%s/%s/%s/%s/metadata/times' % (base_url, site, platform, code))
     for item in response.json():
-        if item['stream'] == 'tmpsf_sample':
+        if item['stream'] == stream:
             end_time = item['endTime']
             end_time = datetime.datetime.strptime(end_time[:-1] + '000', '%Y-%m-%dT%H:%M:%S.%f')
     start_time = end_time - datetime.timedelta(milliseconds=1)
