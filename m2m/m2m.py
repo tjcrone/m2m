@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
+# functions
+__all__ = ['get_latest']
 import requests
 import json
 import time
 import datetime
-from instrument_dict import instrument_dict
+from .instrument_dict import instrument_dict
 
 def get_latest(instrument):
     # define instrument parameters
@@ -35,10 +37,10 @@ def get_latest(instrument):
             output.append(response.json()[-1][probe])
         return output
 
-def main():
-    output = get_latest('ashes_temp_array_01')
-    print(output)
+#def main():
+#    output = get_latest('ashes_temp_array_01')
+#    print(output)
 
 # main sentinel
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()
