@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-# functions
 __all__ = ['get_latest']
 import requests
 import json
@@ -38,11 +37,3 @@ def get_latest(instrument):
         return output
     else:
         raise SystemError('No output filter for the requested instrument stream.')
-
-#def main():
-#    output = get_latest('ashes_temp_array_01')
-#    print(output)
-
-# main sentinel
-#if __name__ == "__main__":
-#    main()
