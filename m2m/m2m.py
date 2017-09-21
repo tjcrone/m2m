@@ -29,13 +29,15 @@ def get_latest(instrument):
     response = requests.get('%s/%s/%s/%s/streamed/%s?beginDT=%s&limit=1000' % 
         (base_url, site, platform, code, stream, start_time))
 
-    # output for ashes_temp_array_01
+    # output filters
     if instrument == 'ashes_temp_array_01':
         output = [response.json()[-1]['time']]
         for j in range(1, 25):
             probe = ('temperature%02.0f' % j)
             output.append(response.json()[-1][probe])
         return output
+    else:
+        raise SystemError('No output filter for the requested instrument stream.')
 
 #def main():
 #    output = get_latest('ashes_temp_array_01')
